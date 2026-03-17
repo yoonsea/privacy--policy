@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,9 +27,13 @@
         /* English version toggle */
         .lang-toggle { text-align: right; margin-bottom: 20px; }
         .lang-toggle a { cursor: pointer; font-size: 14px; }
-        .en { display: none; }
+        .no-js .en { display: block; }
+        .js .en { display: none; }
     </style>
     <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+
         function toggleLang() {
             document.querySelectorAll('.ko').forEach(el => el.style.display = el.style.display === 'none' ? '' : 'none');
             document.querySelectorAll('.en').forEach(el => el.style.display = el.style.display === 'none' ? '' : 'none');
